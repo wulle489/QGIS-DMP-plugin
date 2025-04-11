@@ -2,7 +2,7 @@
     "Access": {
 		"mp_demo": {
             "Name"                 : "Miljøportalen-DEMO",
-            "Address"              : "https://arealeditering-api.demo.miljoeportal.dk",
+            "Address"              : "https://arealeditering.demo.miljoeportal.dk/api",
             "Headers"              : {"content-type": "application/vnd.api+json", "accept": "application/vnd.api+json", "Authorization": "Bearer {}"},
     		"clientId"             : "qgisplugin-integration-daiedittest",
             "host"                 : "http://localhost",
@@ -11,13 +11,13 @@
             "postLogoutRedirectUri": "http://localhost:5001/login",
             "authority"            : "https://log-in.test.miljoeportal.dk/runtime/oauth2",
             "scope"                : "openid http://www.miljoeportal.dk/roles",
-            "api"                  : "https://arealeditering-api.udv.miljoeportal.dk/",
+            "api"                  : "https://arealeditering.demo.miljoeportal.dk/api/",
     	    "pipeName"             : null,
             "ShowConsole"          : true
         },
         "mp_produktion": {
             "Name"                 : "Miljøportalen-PROD",
-            "Address"              : "https://arealeditering-api.miljoeportal.dk",
+            "Address"              : "https://arealeditering.miljoeportal.dk/api",
             "Headers"              : {"content-type": "application/vnd.api+json", "accept": "application/vnd.api+json", "Authorization": "Bearer {}"},
     		"clientId"             : "qgisplugin-integration-daiedit",
             "host"                 : "http://localhost",
@@ -26,7 +26,7 @@
             "postLogoutRedirectUri": "http://localhost:5001/",
             "authority"            : "https://log-in.miljoeportal.dk/runtime/oauth2",
             "scope"                : "openid http://www.miljoeportal.dk/roles",
-            "api"                  : "https://arealeditering-api.miljoeportal.dk/",
+            "api"                  : "https://arealeditering.miljoeportal.dk/api/",
     	    "pipeName"             : null,
             "ShowConsole"          : true
         }
