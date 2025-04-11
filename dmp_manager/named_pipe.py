@@ -54,7 +54,7 @@ class NamedPipe:
         else:
             subprocess.Popen(startArgs, creationflags = subprocess.CREATE_NO_WINDOW + subprocess.CREATE_NEW_PROCESS_GROUP)
 
-        time.sleep (1.0)
+        time.sleep (5.0)
         
         self.handle = win32file.CreateFile(
                     r'\\.\pipe\{}'.format(self.pipeName),
