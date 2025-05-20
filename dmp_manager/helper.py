@@ -30,7 +30,8 @@ from qgis.core import (QgsMessageLog,
                        QgsLayerTreeGroup,
                        QgsAbstractDatabaseProviderConnection,
                        QgsProviderRegistry,
-                       QgsDataSourceUri)
+                       QgsDataSourceUri,
+                       QgsEditorWidgetSetup)
 
 trClassName = ''
 
@@ -352,20 +353,21 @@ def handleRequest_old2(urlstr, isPost=False, headers=None, package=None, loglaye
 
 def handleRequest    (url, method='get', headers=None, package=None, loglayer=None, module=''):
     """TBD"""
-    
+    logI (method + '->' + url + '->' + str(loglayer),'Skrub')    
     method = method.lower()
     
     if method == 'post':
         r = requests.post(url, json=package, headers=headers)
  
-    elif method == 'get':
+    if method == 'get':
         r = requests.get(url, headers=headers)
 
-    elif method == 'patch':
+    if method == 'patch':
         r = requests.patch(url, json=package, headers=headers)
 
-    elif method == 'delete':
+    if method == 'delete':
         r = requests.delete(url, headers=headers)
+
 
     scode = r.status_code
     try:
@@ -566,6 +568,8 @@ def createField(e):
     f = QgsField()
     le = None
     tf = None
+    v_map = {}
+    entries = []
 
     f.setName(e["name"])
     f.setAlias(e["title"])
@@ -584,10 +588,18 @@ def createField(e):
 
     elif e['data-type'] == "domain":
         f.setType(QVariant.String)
+#        for k, v in e["domain"].items(): entries.append({v: k})
+#        v_map['map'] = entries
+#        widget_setup = QgsEditorWidgetSetup('ValueMap', v_map)
+#        f.setEditorWidgetSetup(widget_setup)
         le, tf = createMemLookup(e["domain"], e["name"], e["title"])
 
     elif e['data-type'] == "domain-multi":
         f.setType(QVariant.String)
+#        for k, v in e["domain"].items(): entries.append({v: k})
+#        v_map['map'] = entries
+#        widget_setup = QgsEditorWidgetSetup('ValueMap', v_map)
+#        f.setEditorWidgetSetup(widget_setup)
         le, tf = createMemLookup(e["domain"], e["name"], e["title"])
 
     else:
