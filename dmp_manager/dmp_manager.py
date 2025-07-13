@@ -579,7 +579,7 @@ class DMPManager:
             except:
                 pass 
         txt = fv.toString(Qt.ISODate) if isinstance(fv, QDateTime) else str(fv) 
-        return None if txt == 'NULL' else txt
+        return None if txt == 'NULL' else txt.replace('{','[').replace('}',']')
 
 
     def updDMP(self, pkid, crawler, connection, tblCur, tblRef, pkName, pkQuote, tCode, log=False):
